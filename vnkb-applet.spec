@@ -8,7 +8,7 @@ Source: http://vinux.sourceforge.net/pclouds/%{name}-%{version}.tar.bz2
 Buildroot: %{_tmppath}/%{name}-buildroot
 License: GPL
 Requires: locales-vi
-BuildRequires:	XFree86-devel gtk+2-devel libglade2.0-devel
+BuildRequires:	X11-devel gtk+2-devel libglade2.0-devel
 BuildRequires:	gnomeui2-devel gnome-panel-devel
 BuildRequires:  perl-XML-Parser
 
