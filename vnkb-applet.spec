@@ -5,6 +5,7 @@ Release: %mkrel 4
 Group: System/Internationalization
 URL: http://vinux.sourceforge.net/wikini/wakka.php?wiki=vnkb-applet
 Source: http://vinux.sourceforge.net/pclouds/%{name}-%{version}.tar.bz2
+Buildroot: %{_tmppath}/%{name}-buildroot
 License: GPL
 Requires: locales-vi
 BuildRequires:	X11-devel gtk+2-devel libglade2.0-devel
