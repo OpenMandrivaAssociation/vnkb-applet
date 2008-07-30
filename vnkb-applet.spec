@@ -1,7 +1,7 @@
 Name: vnkb-applet
 Summary: A Vietnamese keyboard input for X-Window
 Version: 0.0.3
-Release: %mkrel 4
+Release: %mkrel 6
 Group: System/Internationalization
 URL: http://vinux.sourceforge.net/wikini/wakka.php?wiki=vnkb-applet
 Source: http://vinux.sourceforge.net/pclouds/%{name}-%{version}.tar.bz2
