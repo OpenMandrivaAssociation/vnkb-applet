@@ -5,12 +5,18 @@ Release: %mkrel 8
 Group: System/Internationalization
 URL: http://vinux.sourceforge.net/wikini/wakka.php?wiki=vnkb-applet
 Source: http://vinux.sourceforge.net/pclouds/%{name}-%{version}.tar.bz2
+Patch0: vnkb-applet-0.0.3-gnomeui-dir.patch
+Patch1: vnkb-applet-0.0.3-gtk-namespace.patch
 Buildroot: %{_tmppath}/%{name}-buildroot
 License: GPL
 Requires: locales-vi
-BuildRequires:	X11-devel gtk+2-devel libglade2.0-devel
-BuildRequires:	gnomeui2-devel gnome-panel-devel
-BuildRequires:  perl-XML-Parser
+BuildRequires: libx11-devel
+BuildRequires: libglade2.0-devel
+BuildRequires: gnome-panel-devel
+BuildRequires: libgnomeui2-devel
+BuildRequires: perl-XML-Parser
+BuildRequires: gnome-common
+BuildRequires: intltool
 
 %description
 Vnkb-applet is a GNOME Frontend for xvnkb
@@ -20,10 +26,13 @@ It provides both:
 
 %prep
 %setup -q
+%patch0 -p0
+%patch1 -p0
 
 %build
-#configure --with-unikey-gtk (default: excluded)
-CFLAGS="$RPM_OPT_FLAGS -fPIC" %configure 
+NOCONFIGURE=yes gnome-autogen.sh
+export CFLAGS="%optflags -fPIC"
+%configure2_5x
 %make 
 
 %install
