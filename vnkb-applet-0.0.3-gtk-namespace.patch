@@ -1,0 +1,29 @@
+--- src/vnkb-docklet/vnkb-docklet.c.gtk	2011-01-28 11:12:59.000000000 +0100
++++ src/vnkb-docklet/vnkb-docklet.c	2011-01-28 11:13:41.000000000 +0100
+@@ -101,7 +101,7 @@
+ }
+ 
+ static void
+-gtk_widget_set_visible(GtkWidget *w,gboolean v)
++my_gtk_widget_set_visible(GtkWidget *w,gboolean v)
+ {
+   if (v)
+     gtk_widget_show(w);
+@@ -118,13 +118,13 @@
+   gboolean is_xvnkb = vnkb->driver == DRIVER_XVNKB;
+ 
+   w = gtk_ui_manager_get_widget(docklet->uim,"/MainMenu/IM/IM_StarViqr");
+-  gtk_widget_set_visible(w,!is_xvnkb);
++  my_gtk_widget_set_visible(w,!is_xvnkb);
+   w = gtk_ui_manager_get_widget(docklet->uim,"/MainMenu/CS/CS_Vps");
+-  gtk_widget_set_visible(w,is_xvnkb);
++  my_gtk_widget_set_visible(w,is_xvnkb);
+   w = gtk_ui_manager_get_widget(docklet->uim,"/MainMenu/CS/CS_Viscii");
+-  gtk_widget_set_visible(w,is_xvnkb);
++  my_gtk_widget_set_visible(w,is_xvnkb);
+   w = gtk_ui_manager_get_widget(docklet->uim,"/MainMenu/Spell");
+-  gtk_widget_set_visible(w,is_xvnkb);
++  my_gtk_widget_set_visible(w,is_xvnkb);
+ }
+ 
+ #define _(X) X

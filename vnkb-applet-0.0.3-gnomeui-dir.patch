@@ -1,0 +1,39 @@
+--- configure.in.dir	2011-01-28 11:00:49.000000000 +0100
++++ configure.in	2011-01-28 11:02:00.000000000 +0100
+@@ -26,7 +26,7 @@
+ AC_SUBST(VNKB_CFLAGS)
+ AC_SUBST(VNKB_LIBS)
+ 
+-PKG_CHECK_MODULES(VNKB_APPLET, libpanelapplet-2.0 >= $LIBPANELAPPLET_REQUIRED,VNKB_APPLET_OK="yes",VNKB_APPLET_OK="no")
++PKG_CHECK_MODULES(VNKB_APPLET, libgnomeui-2.0 libpanelapplet-2.0 >= $LIBPANELAPPLET_REQUIRED,VNKB_APPLET_OK="yes",VNKB_APPLET_OK="no")
+ AC_SUBST(VNKB_APPLET_CFLAGS)
+ AC_SUBST(VNKB_APPLET_LIBS)
+ AM_CONDITIONAL(BUILD_VNKB_APPLET,test "$VNKB_APPLET_OK" = "yes")
+--- Makefile.am.dir	2011-01-28 11:04:46.000000000 +0100
++++ Makefile.am	2011-01-28 11:04:56.000000000 +0100
+@@ -2,4 +2,4 @@
+ EXTRA_DIST = \
+ 	intltool-extract.in			\
+ 	intltool-merge.in			\
+-	intltool-update.in			\
++	intltool-update.in
+--- src/vnkb-applet/Makefile.am.link	2011-01-28 11:10:04.000000000 +0100
++++ src/vnkb-applet/Makefile.am	2011-01-28 11:10:24.000000000 +0100
+@@ -3,7 +3,7 @@
+ INCLUDES = $(VNKB_APPLET_CFLAGS) -DGNOMELOCALEDIR=\""$(prefix)/$(DATADIRNAME)/locale"\"  -I../libvnkb
+ 
+ vnkb_applet_SOURCES = vnkb-applet.c 
+-vnkb_applet_LDADD = $(VNKB_APPLET_LIBS) $(VNKB_LIBS) ../libvnkb/libvnkb.a
++vnkb_applet_LDADD = ../libvnkb/libvnkb.a $(VNKB_APPLET_LIBS) $(VNKB_LIBS)
+ 
+ EXTRA_DIST = VnkbApplet_Factory.server.in.in	\
+ 	$(ui_DATA)
+--- src/vnkb-docklet/Makefile.am.dir	2011-01-28 11:14:32.000000000 +0100
++++ src/vnkb-docklet/Makefile.am	2011-01-28 11:14:49.000000000 +0100
+@@ -3,5 +3,5 @@
+ bin_PROGRAMS = vnkb-docklet
+ 
+ vnkb_docklet_SOURCES = vnkb-docklet.c eggtrayicon.c eggtrayicon.h
+-vnkb_docklet_LDADD = $(VNKB_LIBS) ../libvnkb/libvnkb.a
++vnkb_docklet_LDADD = ../libvnkb/libvnkb.a $(VNKB_LIBS)
+ 
