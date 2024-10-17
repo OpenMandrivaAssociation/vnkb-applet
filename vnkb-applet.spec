@@ -3,7 +3,7 @@ Summary: A Vietnamese keyboard input for X-Window
 Version: 0.0.3
 Release: %mkrel 8
 Group: System/Internationalization
-URL: http://vinux.sourceforge.net/wikini/wakka.php?wiki=vnkb-applet
+URL: https://vinux.sourceforge.net/wikini/wakka.php?wiki=vnkb-applet
 Source: http://vinux.sourceforge.net/pclouds/%{name}-%{version}.tar.bz2
 Patch0: vnkb-applet-0.0.3-gnomeui-dir.patch
 Patch1: vnkb-applet-0.0.3-gtk-namespace.patch
